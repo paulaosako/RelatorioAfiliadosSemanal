@@ -10,6 +10,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f8;min-height:100vh;color:#1a1a2e}
 
+    /* HEADER */
     .header{background:linear-gradient(135deg,#7B2FBE 0%,#3d1773 60%,#1a1a2e 100%);padding:18px 32px;display:flex;align-items:center;gap:16px;box-shadow:0 4px 20px rgba(123,47,190,.4);flex-wrap:wrap}
     .header-logo{width:52px;height:52px}
     .header-title{font-size:24px;font-weight:900;color:#fff}
@@ -17,10 +18,10 @@
     .header-sub{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px}
     .header-right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
     .header-status{font-size:12px;color:rgba(255,255,255,.7)}
-    .btn{padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;border:none;transition:opacity .15s}
-    .btn:hover{opacity:.85}
-    .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)}
+    .btn-ghost{padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff;transition:opacity .15s}
+    .btn-ghost:hover{opacity:.85}
 
+    /* LOADING/ERROR */
     .center-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 40px;gap:16px}
     .spinner{width:44px;height:44px;border:4px solid #e0e0e0;border-top-color:#7B2FBE;border-radius:50%;animation:spin .8s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
@@ -32,7 +33,16 @@
     .error-hint{background:#f8f8f8;border-radius:8px;padding:12px 16px;font-size:13px;color:#777;text-align:left}
     .error-hint code{background:#eee;padding:2px 6px;border-radius:4px;font-size:12px}
 
+    /* MAIN TABS (Resultados / Análises) */
+    .main-nav{background:#fff;border-bottom:2px solid #eee;display:flex;gap:0;padding:0 32px}
+    .main-nav-btn{padding:14px 24px;font-size:14px;font-weight:700;color:#aaa;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .15s}
+    .main-nav-btn.active{color:#7B2FBE;border-bottom-color:#7B2FBE}
+    .main-nav-btn:hover:not(.active){color:#555}
+
+    /* MAIN CONTENT */
     .main{max-width:1060px;margin:0 auto;padding:24px 16px}
+    .tab-page{display:none}
+    .tab-page.active{display:block}
 
     /* FILTER BAR */
     .filter-bar{background:#fff;border-radius:14px;padding:18px 22px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:20px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
@@ -42,14 +52,14 @@
     .filter-select:focus{outline:none;border-color:#7B2FBE}
     .toggle-month{padding:9px 16px;border-radius:8px;border:1.5px solid #7B2FBE;background:#fff;color:#7B2FBE;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap}
     .toggle-month.active{background:#7B2FBE;color:#fff}
-    .filter-divider{width:1px;background:#eee;align-self:stretch;margin:0 4px}
+    .filter-divider{width:1px;background:#eee;align-self:stretch;margin:0 2px}
 
-    /* TABS */
-    .tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
-    .tab-btn{padding:9px 18px;border-radius:10px;border:2px solid #e0e0e0;background:#fff;font-weight:700;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px}
-    .tab-btn.no-data{opacity:.4}
+    /* PLATFORM TABS */
+    .plat-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .plat-tab{padding:9px 18px;border-radius:10px;border:2px solid #e0e0e0;background:#fff;font-weight:700;font-size:13px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:6px}
+    .plat-tab.no-data{opacity:.4}
 
-    /* DETAIL */
+    /* RESULTS */
     .badge-month{display:inline-block;background:#7B2FBE;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle}
     .metrics{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
     .metric-card{background:#fff;border-radius:12px;padding:16px 20px;border-left:4px solid #ccc;box-shadow:0 2px 8px rgba(0,0,0,.07);min-width:130px;flex:1}
@@ -63,12 +73,42 @@
     .info-empty{color:#ccc;font-style:italic}
 
     /* CHARTS */
-    .charts-section{margin-top:28px}
-    .section-title{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+    .section-title{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;margin-top:28px}
     .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .chart-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
     .chart-title{font-size:13px;font-weight:700;color:#555;margin-bottom:14px}
     .chart-full{grid-column:1/-1}
+
+    /* ANÁLISES */
+    .analysis-grid{display:grid;grid-template-columns:1fr;gap:16px}
+
+    /* Card de análise por plataforma */
+    .analysis-plat-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);overflow:hidden}
+    .analysis-plat-header{padding:16px 22px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #f0f0f0}
+    .analysis-plat-emoji{font-size:26px}
+    .analysis-plat-name{font-size:16px;font-weight:900}
+    .analysis-plat-meta{font-size:12px;color:#aaa;margin-top:2px}
+    .analysis-plat-body{padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    .analysis-item{border-radius:10px;padding:14px 16px;border-left:3px solid #eee}
+    .analysis-item-title{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+    .analysis-item-content{font-size:13px;color:#1a1a2e;line-height:1.6;white-space:pre-wrap}
+    .analysis-item.full{grid-column:1/-1}
+
+    /* Pills for top3 */
+    .pill-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+    .pill{background:#f0f0f0;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;color:#555}
+    .pill a{color:inherit;text-decoration:none}
+    .pill a:hover{text-decoration:underline}
+
+    /* Timeline strip for week comparison */
+    .timeline-strip{display:flex;gap:0;overflow-x:auto;margin-bottom:20px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+    .timeline-cell{flex:1;min-width:120px;padding:12px 14px;background:#fff;border-right:1px solid #f0f0f0;cursor:pointer;transition:background .15s}
+    .timeline-cell:last-child{border-right:none}
+    .timeline-cell:hover{background:#f8f8ff}
+    .timeline-cell.active-week{background:#7B2FBE10;border-top:3px solid #7B2FBE}
+    .timeline-cell-week{font-size:11px;font-weight:700;color:#7B2FBE;margin-bottom:4px}
+    .timeline-cell-plat{font-size:11px;color:#888}
 
     /* SUMMARY */
     .summary-bar{margin-top:20px;background:linear-gradient(90deg,rgba(123,47,190,.07),rgba(247,148,29,.07));border-radius:12px;padding:14px 22px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;border:1px solid rgba(123,47,190,.1)}
@@ -78,14 +118,16 @@
     .no-data-msg{text-align:center;color:#bbb;padding:50px;font-size:15px}
 
     @media(max-width:640px){
-      .info-grid,.charts-grid{grid-template-columns:1fr}
-      .chart-full{grid-column:auto}
+      .info-grid,.charts-grid,.analysis-plat-body{grid-template-columns:1fr}
+      .chart-full,.analysis-item.full{grid-column:auto}
       .header-right{margin-left:0;width:100%}
+      .main-nav{padding:0 16px}
     }
   </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <div class="header">
   <img class="header-logo" id="logo-img" alt="StarLive"/>
   <div>
@@ -94,13 +136,14 @@
   </div>
   <div class="header-right">
     <span class="header-status" id="hstatus">⏳ Carregando...</span>
-    <label class="btn btn-ghost">
+    <label class="btn-ghost">
       📂 Carregar Planilha
       <input type="file" id="file-input" accept=".xlsx,.xls" style="display:none"/>
     </label>
   </div>
 </div>
 
+<!-- STATES -->
 <div id="loading-wrap" class="center-wrap">
   <div class="spinner"></div>
   <div class="loading-text">Carregando dados do repositório...</div>
@@ -112,8 +155,16 @@
   <div class="error-hint">Nome esperado: <code>Formulário de Report Semanal_ Performance de Afiliados.xlsx</code></div>
 </div>
 
+<!-- MAIN NAV -->
+<div id="main-nav" class="main-nav" style="display:none">
+  <button class="main-nav-btn active" onclick="switchPage('resultados')">📊 Resultados</button>
+  <button class="main-nav-btn" onclick="switchPage('analises')">🔍 Análises</button>
+</div>
+
+<!-- CONTENT -->
 <div class="main" id="main-content" style="display:none">
 
+  <!-- ═══════════════ SHARED FILTER BAR ═══════════════ -->
   <div class="filter-bar">
     <div class="filter-group">
       <div class="filter-label">📅 Semana</div>
@@ -131,230 +182,189 @@
     </div>
   </div>
 
-  <div class="tabs" id="tabs"></div>
-  <div id="platform-detail"></div>
+  <!-- ═══════════════ PAGE: RESULTADOS ═══════════════ -->
+  <div id="page-resultados" class="tab-page active">
+    <div class="plat-tabs" id="tabs-res"></div>
+    <div id="detail-res"></div>
 
-  <div class="charts-section">
     <div class="section-title">📈 Gráficos — filtros aplicados</div>
     <div class="charts-grid">
       <div class="chart-card chart-full">
-        <div class="chart-title" id="chart-gmv-all-title">GMV por Semana</div>
+        <div class="chart-title" id="ct-gmv-all">GMV por Semana</div>
         <canvas id="chart-gmv-all" height="75"></canvas>
       </div>
       <div class="chart-card">
-        <div class="chart-title" id="chart-gmv-plat-title">GMV por Plataforma</div>
+        <div class="chart-title" id="ct-gmv-plat">GMV por Plataforma</div>
         <canvas id="chart-gmv-plat" height="160"></canvas>
       </div>
       <div class="chart-card">
-        <div class="chart-title" id="chart-afil-title">Afiliados Ativos</div>
+        <div class="chart-title" id="ct-afil">Afiliados Ativos</div>
         <canvas id="chart-afiliados" height="160"></canvas>
       </div>
       <div class="chart-card">
-        <div class="chart-title" id="chart-cri-title">Criadores que Postaram</div>
+        <div class="chart-title" id="ct-cri">Criadores que Postaram</div>
         <canvas id="chart-criadores" height="160"></canvas>
       </div>
       <div class="chart-card">
-        <div class="chart-title" id="chart-camp-title">Campanhas Ativas</div>
+        <div class="chart-title" id="ct-camp">Campanhas Ativas</div>
         <canvas id="chart-campanhas" height="160"></canvas>
       </div>
     </div>
+
+    <div class="summary-bar" id="summary-res"></div>
   </div>
 
-  <div class="summary-bar" id="summary-bar"></div>
+  <!-- ═══════════════ PAGE: ANÁLISES ═══════════════ -->
+  <div id="page-analises" class="tab-page">
+    <div class="plat-tabs" id="tabs-ana"></div>
+    <div id="detail-ana"></div>
+    <div class="summary-bar" id="summary-ana"></div>
+  </div>
+
   <div class="last-upd" id="last-upd"></div>
 </div>
 
 <script>
-const ARQUIVO = "Formulário de Report Semanal_ Performance de Afiliados.xlsx";
-
-const PLATS = {
-  "Shopee":        {label:"Shopee",        emoji:"🛒", color:"#EE4D2D", match:p=>p&&p.toLowerCase().includes("shopee")},
-  "TikTok MCN":    {label:"TikTok MCN",    emoji:"🎬", color:"#555555", match:p=>p&&p.toLowerCase().includes("mcn")},
-  "TikTok TAP":    {label:"TikTok TAP",    emoji:"🎵", color:"#00BCD4", match:p=>p&&p.toLowerCase().includes("tap")},
-  "Mercado Livre": {label:"Mercado Livre", emoji:"🌐", color:"#C8A800", match:p=>p&&(p.toLowerCase().includes("meli")||p.toLowerCase().includes("mercado"))}
+const ARQUIVO="Formulário de Report Semanal_ Performance de Afiliados.xlsx";
+const PLATS={
+  "Shopee":       {label:"Shopee",       emoji:"🛒",color:"#EE4D2D",match:p=>p&&p.toLowerCase().includes("shopee")},
+  "TikTok MCN":   {label:"TikTok MCN",   emoji:"🎬",color:"#555555",match:p=>p&&p.toLowerCase().includes("mcn")},
+  "TikTok TAP":   {label:"TikTok TAP",   emoji:"🎵",color:"#00BCD4",match:p=>p&&p.toLowerCase().includes("tap")},
+  "Mercado Livre":{label:"Mercado Livre",emoji:"🌐",color:"#C8A800",match:p=>p&&(p.toLowerCase().includes("meli")||p.toLowerCase().includes("mercado"))}
 };
-const PLAT_COLORS = {"Shopee":"#EE4D2D","TikTok MCN":"#555555","TikTok TAP":"#00BCD4","Mercado Livre":"#C8A800"};
-const ORANGE="#F7941D", PURPLE="#7B2FBE", RED="#E63946";
+const PLAT_COLORS={"Shopee":"#EE4D2D","TikTok MCN":"#555555","TikTok TAP":"#00BCD4","Mercado Livre":"#C8A800"};
+const ORANGE="#F7941D",PURPLE="#7B2FBE",RED="#E63946";
 
-let allRows=[], activeTab="ALL", monthView=false, charts={};
+let allRows=[],activeTabRes="ALL",activeTabAna="ALL",monthView=false,charts={},currentPage="resultados";
 
 // ── DATE UTILS ───────────────────────────────────────────────
 function parseDate(v){
-  if(!v) return null;
-  if(v instanceof Date) return new Date(v);
+  if(!v)return null;
+  if(v instanceof Date)return new Date(v);
   const s=String(v).trim();
-  // "M/D/YYYY" or "M/D/YY"
   const m1=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
   if(m1){let y=parseInt(m1[3]);if(y<100)y+=2000;return new Date(y,parseInt(m1[1])-1,parseInt(m1[2]));}
-  // "YYYY-MM-DD"
   const m2=s.match(/^(\d{4})-(\d{2})-(\d{2})/);
-  if(m2) return new Date(parseInt(m2[1]),parseInt(m2[2])-1,parseInt(m2[3]));
+  if(m2)return new Date(parseInt(m2[1]),parseInt(m2[2])-1,parseInt(m2[3]));
   return null;
 }
-
-// Get Monday of the week containing date d
 function weekStart(d){
-  if(!d) return null;
-  const dt=new Date(d);
-  const day=dt.getDay(); // 0=sun
-  const diff=day===0?-6:1-day; // shift to monday
-  dt.setDate(dt.getDate()+diff);
-  dt.setHours(0,0,0,0);
-  return dt;
+  const dt=new Date(d);const day=dt.getDay();
+  dt.setDate(dt.getDate()+(day===0?-6:1-day));dt.setHours(0,0,0,0);return dt;
 }
-
-// Get Sunday of the week
-function weekEnd(d){
-  const ws=weekStart(d);
-  if(!ws) return null;
-  const we=new Date(ws);
-  we.setDate(we.getDate()+6);
-  return we;
-}
-
-// Week range label: "23/06 – 29/06/2026"
+function weekEnd(d){const ws=weekStart(d);const we=new Date(ws);we.setDate(we.getDate()+6);return we;}
 function weekRangeLabel(d){
-  const dt=parseDate(d);
-  if(!dt) return "—";
-  const ws=weekStart(dt), we=weekEnd(dt);
-  const fmt=x=>`${String(x.getDate()).padStart(2,"0")}/${String(x.getMonth()+1).padStart(2,"0")}`;
-  return`${fmt(ws)} – ${fmt(we)}/${we.getFullYear()}`;
+  const dt=parseDate(d);if(!dt)return"—";
+  const ws=weekStart(dt),we=weekEnd(dt);
+  const f=x=>`${String(x.getDate()).padStart(2,"0")}/${String(x.getMonth()+1).padStart(2,"0")}`;
+  return`${f(ws)} – ${f(we)}/${we.getFullYear()}`;
 }
-
-// Unique week key (monday ISO)
 function weekKey(d){
-  const dt=parseDate(d);
-  if(!dt) return "—";
+  const dt=parseDate(d);if(!dt)return"—";
   const ws=weekStart(dt);
   return`${ws.getFullYear()}-${String(ws.getMonth()+1).padStart(2,"0")}-${String(ws.getDate()).padStart(2,"0")}`;
 }
-
 function monthKey(d){
-  const dt=parseDate(d);
-  if(!dt) return "—";
+  const dt=parseDate(d);if(!dt)return"—";
   return`${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,"0")}`;
 }
 function monthLabel(k){
-  if(!k||k==="all") return "Todos os meses";
-  const [y,m]=k.split("-");
-  const names=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
-  return`${names[parseInt(m)-1]} ${y}`;
+  if(!k||k==="all")return"Todos os meses";
+  const[y,m]=k.split("-");
+  return["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"][parseInt(m)-1]+" "+y;
 }
-function fmtDate(v){
-  const dt=parseDate(v);
-  if(!dt) return String(v||"—");
-  return dt.toLocaleDateString("pt-BR");
-}
+function fmtDate(v){const dt=parseDate(v);if(!dt)return String(v||"—");return dt.toLocaleDateString("pt-BR");}
 function fmtCur(v){
-  if(v===null||v===undefined||v==="") return "—";
-  const n=parseFloat(v); if(isNaN(n)) return String(v);
+  if(v===null||v===undefined||v==="")return"—";
+  const n=parseFloat(v);if(isNaN(n))return String(v);
   return"R$ "+n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 function safeVal(v){
-  if(v===null||v===undefined) return null;
-  const s=String(v).trim();
-  return(s===""||s==="nan")?null:s;
+  if(v===null||v===undefined)return null;
+  const s=String(v).trim();return(s===""||s==="nan")?null:s;
 }
 function findCol(row,pats){
-  for(const key of Object.keys(row))
-    for(const p of pats)
-      if(key.toLowerCase().includes(p.toLowerCase())) return row[key];
+  for(const k of Object.keys(row))for(const p of pats)if(k.toLowerCase().includes(p.toLowerCase()))return row[k];
   return null;
 }
-function platKey(p){
-  for(const[k,c]of Object.entries(PLATS)) if(c.match(p)) return k;
-  return null;
-}
+function platKey(p){for(const[k,c]of Object.entries(PLATS))if(c.match(p))return k;return null;}
 
-// ── FILTERS ──────────────────────────────────────────────────
-function getSelectedWeek(){ return document.getElementById("filter-week").value; }
-function getSelectedMonth(){ return document.getElementById("filter-month").value; }
+// ── FILTER HELPERS ───────────────────────────────────────────
+function getSelWeek(){return document.getElementById("filter-week").value;}
+function getSelMonth(){return document.getElementById("filter-month").value;}
 
-function rowMatchesFilters(r){
-  const selWeek=getSelectedWeek(), selMonth=getSelectedMonth();
+function rowMatches(r,activeTab){
   const pk=platKey(r["🚀 Plataforma  🚀 "]);
-  const platMatch=activeTab==="ALL"||(pk===activeTab);
-  const weekMatch=selWeek==="all"||weekKey(r["Data do Report"])===selWeek;
-  const monthMatch=selMonth==="all"||monthKey(r["Data do Report"])===selMonth;
-  return platMatch&&weekMatch&&monthMatch;
+  return(activeTab==="ALL"||pk===activeTab)
+    &&(getSelWeek()==="all"||weekKey(r["Data do Report"])===getSelWeek())
+    &&(getSelMonth()==="all"||monthKey(r["Data do Report"])===getSelMonth());
 }
-
-function getFilteredRows(){ return allRows.filter(rowMatchesFilters); }
-
-// Last entry per platform within current filters (= month result)
-function getMonthRows(){
+function getFilteredRows(activeTab){return allRows.filter(r=>rowMatches(r,activeTab));}
+function getMonthRows(activeTab){
   const byPlat={};
-  getFilteredRows().forEach(r=>{
-    const pk=platKey(r["🚀 Plataforma  🚀 "]);
-    if(!pk) return;
+  getFilteredRows(activeTab).forEach(r=>{
+    const pk=platKey(r["🚀 Plataforma  🚀 "]);if(!pk)return;
     const dt=parseDate(r["Data do Report"]);
-    if(!byPlat[pk]||dt>parseDate(byPlat[pk]["Data do Report"])) byPlat[pk]=r;
+    if(!byPlat[pk]||dt>parseDate(byPlat[pk]["Data do Report"]))byPlat[pk]=r;
   });
   return Object.values(byPlat);
 }
+function getDisplayRows(activeTab){return monthView?getMonthRows(activeTab):getFilteredRows(activeTab);}
 
-function getDisplayRows(){ return monthView?getMonthRows():getFilteredRows(); }
-
-// ── POPULATE SELECTS ─────────────────────────────────────────
+// ── POPULATE FILTERS ─────────────────────────────────────────
 function populateFilters(){
-  // weeks sorted by monday
   const weekMap={};
-  allRows.forEach(r=>{
-    const k=weekKey(r["Data do Report"]);
-    if(k!=="—") weekMap[k]=weekRangeLabel(r["Data do Report"]);
-  });
+  allRows.forEach(r=>{const k=weekKey(r["Data do Report"]);if(k!=="—")weekMap[k]=weekRangeLabel(r["Data do Report"]);});
   const wSel=document.getElementById("filter-week");
-  const prevWeek=wSel.value;
+  const pw=wSel.value;
   wSel.innerHTML='<option value="all">Todas as semanas</option>';
-  Object.keys(weekMap).sort().forEach(k=>{
-    const o=document.createElement("option");
-    o.value=k; o.textContent=weekMap[k]; wSel.appendChild(o);
-  });
-  if(prevWeek&&[...wSel.options].some(o=>o.value===prevWeek)) wSel.value=prevWeek;
+  Object.keys(weekMap).sort().forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=weekMap[k];wSel.appendChild(o);});
+  if(pw&&[...wSel.options].some(o=>o.value===pw))wSel.value=pw;
 
-  // months sorted
   const months=[...new Set(allRows.map(r=>monthKey(r["Data do Report"])).filter(k=>k!=="—"))].sort();
   const mSel=document.getElementById("filter-month");
-  const prevMonth=mSel.value;
+  const pm=mSel.value;
   mSel.innerHTML='<option value="all">Todos os meses</option>';
-  months.forEach(k=>{
-    const o=document.createElement("option");
-    o.value=k; o.textContent=monthLabel(k); mSel.appendChild(o);
-  });
-  if(prevMonth&&[...mSel.options].some(o=>o.value===prevMonth)) mSel.value=prevMonth;
+  months.forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=monthLabel(k);mSel.appendChild(o);});
+  if(pm&&[...mSel.options].some(o=>o.value===pm))mSel.value=pm;
 }
 
-// ── TABS ─────────────────────────────────────────────────────
-function renderTabs(){
-  const tabs=document.getElementById("tabs");
+// ── SWITCH PAGE ──────────────────────────────────────────────
+function switchPage(page){
+  currentPage=page;
+  document.querySelectorAll(".main-nav-btn").forEach((b,i)=>{
+    b.classList.toggle("active",["resultados","analises"][i]===page);
+  });
+  document.querySelectorAll(".tab-page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page-"+page).classList.add("active");
+}
+
+// ── PLATFORM TABS ────────────────────────────────────────────
+function renderTabs(containerId,activeTab,onClickFn){
+  const tabs=document.getElementById(containerId);
   tabs.innerHTML="";
   const presentPlats=new Set(allRows.map(r=>platKey(r["🚀 Plataforma  🚀 "])).filter(Boolean));
   [["ALL",{label:"Todas",emoji:"📊",color:PURPLE}],...Object.entries(PLATS)].forEach(([key,cfg])=>{
     const hasData=key==="ALL"||presentPlats.has(key);
     const isActive=activeTab===key;
     const btn=document.createElement("button");
-    btn.className="tab-btn"+(hasData?"":" no-data");
+    btn.className="plat-tab"+(hasData?"":" no-data");
     btn.style.borderColor=isActive?cfg.color:"#e0e0e0";
     btn.style.background=isActive?cfg.color:"#fff";
-    const dark=cfg.color==="#C8A800";
-    btn.style.color=isActive?(dark?"#1a1a2e":"#fff"):(hasData?cfg.color:"#bbb");
+    btn.style.color=isActive?(cfg.color==="#C8A800"?"#1a1a2e":"#fff"):(hasData?cfg.color:"#bbb");
     btn.innerHTML=cfg.emoji+" "+cfg.label+(hasData?"":' <span style="font-size:11px;opacity:.6">(sem dados)</span>');
-    btn.onclick=()=>{ activeTab=key; renderAll(); };
+    btn.onclick=()=>onClickFn(key);
     tabs.appendChild(btn);
   });
 }
 
-// ── DETAIL ───────────────────────────────────────────────────
-function renderDetail(){
-  const detail=document.getElementById("platform-detail");
-  const rows=getDisplayRows();
+// ── RESULTS DETAIL ───────────────────────────────────────────
+function renderResultsDetail(){
+  const el=document.getElementById("detail-res");
+  const rows=getDisplayRows(activeTabRes);
+  if(!rows.length){el.innerHTML='<div class="no-data-msg">Nenhum dado para os filtros selecionados.</div>';return;}
 
-  if(!rows.length){
-    detail.innerHTML='<div class="no-data-msg">Nenhum dado para os filtros selecionados.</div>';
-    return;
-  }
-
-  if(rows.length>1||activeTab==="ALL"){
+  if(rows.length>1||activeTabRes==="ALL"){
     let html='<div style="overflow-x:auto;margin-bottom:20px"><table style="width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.07)">';
     html+='<thead><tr style="background:'+PURPLE+';color:#fff;font-size:12px">';
     ["Plataforma","Data","Semana","Analista","GMV","Afiliados","Criadores","Campanhas","Amostras"].forEach(h=>{
@@ -365,8 +375,7 @@ function renderDetail(){
     .forEach((r,i)=>{
       const pk=platKey(r["🚀 Plataforma  🚀 "]);
       const cfg=pk?PLATS[pk]:{label:r["🚀 Plataforma  🚀 "],emoji:"",color:"#888"};
-      const bg=i%2===0?"#fff":"#fafafa";
-      html+=`<tr style="background:${bg};font-size:13px">
+      html+=`<tr style="background:${i%2===0?"#fff":"#fafafa"};font-size:13px">
         <td style="padding:9px 14px;font-weight:700;color:${cfg.color}">${cfg.emoji} ${cfg.label}</td>
         <td style="padding:9px 14px">${fmtDate(r["Data do Report"])}</td>
         <td style="padding:9px 14px;color:#888;font-size:12px">${weekRangeLabel(r["Data do Report"])}</td>
@@ -379,8 +388,7 @@ function renderDetail(){
       </tr>`;
     });
     html+='</tbody></table></div>';
-    detail.innerHTML=html;
-    return;
+    el.innerHTML=html;return;
   }
 
   const r=rows[0];
@@ -389,45 +397,31 @@ function renderDetail(){
 
   function mc(label,value,accent,sub=""){
     return`<div class="metric-card" style="border-left-color:${accent}">
-      <div class="metric-label">${label}</div>
-      <div class="metric-value">${value||"—"}</div>
+      <div class="metric-label">${label}</div><div class="metric-value">${value||"—"}</div>
       ${sub?`<div class="metric-sub">${sub}</div>`:""}
     </div>`;
   }
   function ib(title,content,accent){
-    const body=safeVal(content)
-      ?`<div class="info-block-content">${safeVal(content).replace(/</g,"&lt;")}</div>`
-      :`<div class="info-block-content info-empty">Não informado</div>`;
+    const body=safeVal(content)?`<div class="info-block-content">${safeVal(content).replace(/</g,"&lt;")}</div>`:`<div class="info-block-content info-empty">Não informado</div>`;
     return`<div class="info-block" style="border-top-color:${accent}"><div class="info-block-title">${title}</div>${body}</div>`;
   }
 
-  const gmv=r["Faturamento Bruto (GMV) Atual"];
-  const afiliados=r["Nível de Atividade da Base: Número total de afiliados ativos"];
-  const criadores=findCol(r,["postaram","linkaram","criadores"]);
-  const campanhas=findCol(r,["campanhas"]);
-  const amostras=findCol(r,["amostras"]);
-  const analista=findCol(r,["Analista"]);
-
-  detail.innerHTML=`
+  el.innerHTML=`
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap">
       <span style="font-size:34px">${cfg.emoji}</span>
       <div>
         <div style="font-size:20px;font-weight:900;color:${cfg.color}">${cfg.label}
           ${monthView?'<span class="badge-month">Resultado do Mês</span>':""}
         </div>
-        <div style="font-size:12px;color:#888">
-          Analista: <b>${safeVal(analista)||"—"}</b> &nbsp;|&nbsp;
-          Data: <b>${fmtDate(r["Data do Report"])}</b> &nbsp;|&nbsp;
-          Semana: <b>${weekRangeLabel(r["Data do Report"])}</b>
-        </div>
+        <div style="font-size:12px;color:#888">Analista: <b>${safeVal(findCol(r,["Analista"]))||"—"}</b> &nbsp;|&nbsp; Data: <b>${fmtDate(r["Data do Report"])}</b> &nbsp;|&nbsp; Semana: <b>${weekRangeLabel(r["Data do Report"])}</b></div>
       </div>
     </div>
     <div class="metrics">
-      ${mc("GMV (Faturamento Bruto)",fmtCur(gmv),ORANGE,monthView?"resultado do mês":"")}
-      ${mc("Afiliados Ativos",safeVal(String(afiliados||""))||"—",PURPLE)}
-      ${mc("Criadores Postaram",safeVal(String(criadores||""))||"—",cfg.color)}
-      ${mc("Campanhas Ativas",safeVal(String(campanhas||""))||"—",ORANGE)}
-      ${mc("Amostras Aprovadas",safeVal(String(amostras||""))||"—",PURPLE)}
+      ${mc("GMV (Faturamento Bruto)",fmtCur(r["Faturamento Bruto (GMV) Atual"]),ORANGE,monthView?"resultado do mês":"")}
+      ${mc("Afiliados Ativos",safeVal(String(r["Nível de Atividade da Base: Número total de afiliados ativos"]||""))||"—",PURPLE)}
+      ${mc("Criadores Postaram",safeVal(String(findCol(r,["postaram","linkaram","criadores"])||""))||"—",cfg.color)}
+      ${mc("Campanhas Ativas",safeVal(String(findCol(r,["campanhas"])||""))||"—",ORANGE)}
+      ${mc("Amostras Aprovadas",safeVal(String(findCol(r,["amostras"])||""))||"—",PURPLE)}
     </div>
     <div class="info-grid">
       ${ib("🏆 Top 3 Produtos Mais Vendidos",findCol(r,["Top 3","Produtos Mais Vendidos"]),ORANGE)}
@@ -445,160 +439,177 @@ function renderDetail(){
   `;
 }
 
-// ── CHARTS — respeitam todos os filtros ──────────────────────
-function destroyChart(id){ if(charts[id]){charts[id].destroy();delete charts[id];} }
+// ── ANALYSES ─────────────────────────────────────────────────
+function parseTop3(v){
+  if(!v)return[];
+  const s=String(v).trim();
+  // detect URLs
+  const urls=s.match(/https?:\/\/[^\s]+/g);
+  if(urls)return urls.map(u=>({label:u.split("/").slice(-1)[0]||"Produto",url:u}));
+  // split by / or newline
+  return s.split(/[\/\n]/).map(x=>x.trim()).filter(Boolean).map(x=>({label:x,url:null}));
+}
 
-function renderCharts(){
-  // Base: rows matching plataforma + mês + semana
-  const baseRows=getFilteredRows();
+function renderAnalysisCard(r){
+  const pk=platKey(r["🚀 Plataforma  🚀 "]);
+  const cfg=pk?PLATS[pk]:{label:r["🚀 Plataforma  🚀 "],emoji:"",color:ORANGE};
 
-  // Determine which platforms to show
-  const platsToShow=activeTab==="ALL"?Object.keys(PLATS):[activeTab];
+  const top3Raw=findCol(r,["Top 3","Produtos Mais Vendidos"]);
+  const top3Items=parseTop3(top3Raw);
+  const top3Html=top3Items.length
+    ?`<div class="pill-list">${top3Items.map(i=>
+        `<div class="pill">${i.url?`<a href="${i.url}" target="_blank">🔗 ${i.label}</a>`:i.label}</div>`
+      ).join("")}</div>`
+    :`<div style="color:#ccc;font-style:italic;font-size:13px">Não informado</div>`;
 
-  // Get sorted unique week keys from filtered rows
-  const weekKeys=[...new Set(baseRows.map(r=>weekKey(r["Data do Report"])).filter(k=>k!=="—"))].sort();
-  const weekLabels=weekKeys.map(k=>{
-    const r=baseRows.find(x=>weekKey(x["Data do Report"])===k);
-    return r?weekRangeLabel(r["Data do Report"]):k;
-  });
+  function ai(title,content,accent,cls="",bg=""){
+    const body=safeVal(content)
+      ?`<div class="analysis-item-content">${safeVal(content).replace(/</g,"&lt;")}</div>`
+      :`<div class="analysis-item-content" style="color:#ccc;font-style:italic">Não informado</div>`;
+    return`<div class="analysis-item ${cls}" style="border-left-color:${accent};background:${bg||accent+"0d"}">
+      <div class="analysis-item-title"><span>${title}</span></div>${body}</div>`;
+  }
 
-  // Titles reflect current filter
-  const platLabel=activeTab==="ALL"?"Todas as Plataformas":PLATS[activeTab].label;
-  const weekLabel2=getSelectedWeek()==="all"?"todas as semanas":
-    weekLabels[weekKeys.indexOf(getSelectedWeek())]||getSelectedWeek();
-  const monthLabel2=monthLabel(getSelectedMonth());
+  const ofensores=findCol(r,["Ofensores","Oportunidades"]);
+  const gargalo=findCol(r,["gargalo"]);
+  const acao=findCol(r,["incentivo","campanha desenhada","próxima semana"]);
+  const acoesSem=findCol(r,["Ações da semana"]);
+  const acoesFut=findCol(r,["Ações Futuras"]);
+  const campanhas=findCol(r,["campanhas"]);
+  const amostras=findCol(r,["amostras"]);
 
-  document.getElementById("chart-gmv-all-title").textContent=
-    `GMV por Semana — ${platLabel}`;
-  document.getElementById("chart-gmv-plat-title").textContent=
-    `GMV por Plataforma — ${monthLabel2}`;
-  document.getElementById("chart-afil-title").textContent=
-    `Afiliados Ativos — ${platLabel}`;
-  document.getElementById("chart-cri-title").textContent=
-    `Criadores que Postaram — ${platLabel}`;
-  document.getElementById("chart-camp-title").textContent=
-    `Campanhas Ativas — ${platLabel}`;
+  return`<div class="analysis-plat-card">
+    <div class="analysis-plat-header" style="border-left:5px solid ${cfg.color}">
+      <div class="analysis-plat-emoji">${cfg.emoji}</div>
+      <div>
+        <div class="analysis-plat-name" style="color:${cfg.color}">${cfg.label}
+          ${monthView?'<span class="badge-month">Resultado do Mês</span>':""}
+        </div>
+        <div class="analysis-plat-meta">
+          ${fmtDate(r["Data do Report"])} &nbsp;·&nbsp; Semana: ${weekRangeLabel(r["Data do Report"])}
+          &nbsp;·&nbsp; Analista: ${safeVal(findCol(r,["Analista"]))||"—"}
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:16px;flex-wrap:wrap">
+        <div style="text-align:center"><div style="font-size:10px;color:#aaa;font-weight:700;text-transform:uppercase">Campanhas</div><div style="font-size:20px;font-weight:900;color:${cfg.color}">${safeVal(String(campanhas||""))||"—"}</div></div>
+        <div style="text-align:center"><div style="font-size:10px;color:#aaa;font-weight:700;text-transform:uppercase">Amostras</div><div style="font-size:20px;font-weight:900;color:${PURPLE}">${safeVal(String(amostras||""))||"—"}</div></div>
+      </div>
+    </div>
+    <div class="analysis-plat-body">
+      <div class="analysis-item full" style="border-left-color:${ORANGE};background:${ORANGE}0d">
+        <div class="analysis-item-title">🏆 Top 3 Produtos Mais Vendidos</div>
+        ${top3Html}
+      </div>
+      ${ai("⚠️ Ofensores / Oportunidades",ofensores,RED)}
+      ${ai("🚧 Gargalo Operacional",gargalo,PURPLE)}
+      ${ai("🚀 Ação / Campanha Próxima Semana",acao,cfg.color)}
+      ${safeVal(acoesSem)?ai("✅ Ações da Semana",acoesSem,"#4CAF50"):""}
+      ${safeVal(acoesFut)?ai("🔮 Ações Futuras",acoesFut,"#9C27B0"):""}
+    </div>
+  </div>`;
+}
 
-  // ── Chart 1: GMV por semana (line, filtrado) ─────────────
-  destroyChart("gmv-all");
-  const gmvDatasets=platsToShow.map(pk=>{
-    const cfg=PLATS[pk];
-    return{
-      label:cfg.emoji+" "+cfg.label,
-      data:weekKeys.map(wk=>{
-        const r=baseRows.find(x=>platKey(x["🚀 Plataforma  🚀 "])===pk&&weekKey(x["Data do Report"])===wk);
-        return r?parseFloat(r["Faturamento Bruto (GMV) Atual"])||0:null;
-      }),
-      borderColor:PLAT_COLORS[pk],
-      backgroundColor:PLAT_COLORS[pk]+"33",
-      tension:.4,spanGaps:true,pointRadius:5,pointHoverRadius:8,borderWidth:2
-    };
-  });
-  charts["gmv-all"]=new Chart(document.getElementById("chart-gmv-all"),{
-    type:"line",
-    data:{labels:weekLabels,datasets:gmvDatasets},
-    options:{responsive:true,interaction:{mode:"index",intersect:false},
-      plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},
-      scales:{y:{ticks:{callback:v=>"R$ "+Number(v).toLocaleString("pt-BR")},grid:{color:"#f0f0f0"}}}}
-  });
+function renderAnalysisDetail(){
+  const el=document.getElementById("detail-ana");
+  const rows=getDisplayRows(activeTabAna);
 
-  // ── Chart 2: GMV por plataforma (bar) ────────────────────
-  destroyChart("gmv-plat");
-  const platTotals=platsToShow.map(pk=>{
-    return baseRows.filter(r=>platKey(r["🚀 Plataforma  🚀 "])===pk)
-      .reduce((s,r)=>s+(parseFloat(r["Faturamento Bruto (GMV) Atual"])||0),0);
-  });
-  charts["gmv-plat"]=new Chart(document.getElementById("chart-gmv-plat"),{
-    type:"bar",
-    data:{
-      labels:platsToShow.map(pk=>PLATS[pk].emoji+" "+PLATS[pk].label),
-      datasets:[{label:"GMV",data:platTotals,
-        backgroundColor:platsToShow.map(pk=>PLAT_COLORS[pk]),
-        borderRadius:8,borderSkipped:false}]
-    },
-    options:{responsive:true,plugins:{legend:{display:false}},
-      scales:{y:{ticks:{callback:v=>"R$ "+Number(v).toLocaleString("pt-BR")},grid:{color:"#f0f0f0"}}}}
-  });
+  if(!rows.length){el.innerHTML='<div class="no-data-msg">Nenhum dado para os filtros selecionados.</div>';return;}
 
-  // ── Chart 3: Afiliados (line) ─────────────────────────────
-  destroyChart("afiliados");
-  charts["afiliados"]=new Chart(document.getElementById("chart-afiliados"),{
-    type:"line",
-    data:{labels:weekLabels,datasets:platsToShow.map(pk=>{
-      const cfg=PLATS[pk];
-      return{label:cfg.emoji+" "+cfg.label,
-        data:weekKeys.map(wk=>{
-          const r=baseRows.find(x=>platKey(x["🚀 Plataforma  🚀 "])===pk&&weekKey(x["Data do Report"])===wk);
-          return r?parseInt(r["Nível de Atividade da Base: Número total de afiliados ativos"])||null:null;
-        }),
-        borderColor:PLAT_COLORS[pk],backgroundColor:PLAT_COLORS[pk]+"33",
-        tension:.4,spanGaps:true,pointRadius:4,borderWidth:2};
-    })},
-    options:{responsive:true,interaction:{mode:"index",intersect:false},
-      plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},
-      scales:{y:{grid:{color:"#f0f0f0"}}}}
-  });
+  // Sort by date
+  const sorted=[...rows].sort((a,b)=>(parseDate(a["Data do Report"])||0)-(parseDate(b["Data do Report"])||0));
 
-  // ── Chart 4: Criadores (line) ─────────────────────────────
-  destroyChart("criadores");
-  charts["criadores"]=new Chart(document.getElementById("chart-criadores"),{
-    type:"line",
-    data:{labels:weekLabels,datasets:platsToShow.map(pk=>{
-      const cfg=PLATS[pk];
-      return{label:cfg.emoji+" "+cfg.label,
-        data:weekKeys.map(wk=>{
-          const r=baseRows.find(x=>platKey(x["🚀 Plataforma  🚀 "])===pk&&weekKey(x["Data do Report"])===wk);
-          if(!r) return null;
-          const v=findCol(r,["postaram","linkaram","criadores"]);
-          return v?parseInt(v)||null:null;
-        }),
-        borderColor:PLAT_COLORS[pk],backgroundColor:PLAT_COLORS[pk]+"33",
-        tension:.4,spanGaps:true,pointRadius:4,borderWidth:2};
-    })},
-    options:{responsive:true,interaction:{mode:"index",intersect:false},
-      plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},
-      scales:{y:{grid:{color:"#f0f0f0"}}}}
-  });
+  // If single platform + multiple weeks → show timeline strip
+  if(activeTabAna!=="ALL"&&sorted.length>1){
+    const strip=sorted.map((r,i)=>`
+      <div class="timeline-cell" onclick="jumpToWeekAna('${weekKey(r["Data do Report"])}')">
+        <div class="timeline-cell-week">${weekRangeLabel(r["Data do Report"])}</div>
+        <div class="timeline-cell-plat">${fmtDate(r["Data do Report"])}</div>
+      </div>`).join("");
+    el.innerHTML=`<div class="timeline-strip">${strip}</div><div class="analysis-grid">${sorted.map(renderAnalysisCard).join("")}</div>`;
+  } else {
+    el.innerHTML=`<div class="analysis-grid">${sorted.map(renderAnalysisCard).join("")}</div>`;
+  }
+}
 
-  // ── Chart 5: Campanhas (bar) ──────────────────────────────
-  destroyChart("campanhas");
-  charts["campanhas"]=new Chart(document.getElementById("chart-campanhas"),{
-    type:"bar",
-    data:{labels:weekLabels,datasets:platsToShow.map(pk=>{
-      const cfg=PLATS[pk];
-      return{label:cfg.emoji+" "+cfg.label,
-        data:weekKeys.map(wk=>{
-          const r=baseRows.find(x=>platKey(x["🚀 Plataforma  🚀 "])===pk&&weekKey(x["Data do Report"])===wk);
-          if(!r) return null;
-          const v=findCol(r,["campanhas"]);
-          return v?parseInt(v)||null:null;
-        }),
-        backgroundColor:PLAT_COLORS[pk]+"bb",borderColor:PLAT_COLORS[pk],
-        borderRadius:6,borderWidth:1};
-    })},
-    options:{responsive:true,interaction:{mode:"index",intersect:false},
-      plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},
-      scales:{y:{grid:{color:"#f0f0f0"}}}}
-  });
+function jumpToWeekAna(wk){
+  document.getElementById("filter-week").value=wk;
+  renderAll();
 }
 
 // ── SUMMARY ──────────────────────────────────────────────────
-function renderSummary(){
-  const rows=getDisplayRows();
-  let gmvTotal=0;
-  const byPlat={};
+function renderSummary(elId,activeTab){
+  const rows=getDisplayRows(activeTab);
+  let gmvTotal=0;const byPlat={};
   rows.forEach(r=>{
     const pk=platKey(r["🚀 Plataforma  🚀 "]);
     const g=parseFloat(r["Faturamento Bruto (GMV) Atual"]);
-    if(!isNaN(g)){gmvTotal+=g; if(pk) byPlat[pk]=(byPlat[pk]||0)+g;}
+    if(!isNaN(g)){gmvTotal+=g;if(pk)byPlat[pk]=(byPlat[pk]||0)+g;}
   });
-  let html=`<div class="summary-title">📊 Resumo do Período Selecionado</div>
+  let html=`<div class="summary-title">📊 Resumo do Período</div>
     <div class="summary-item"><b>GMV Total:</b> ${fmtCur(gmvTotal)}</div>`;
   Object.entries(byPlat).forEach(([pk,gmv])=>{
     const cfg=PLATS[pk];
     html+=`<div class="summary-item"><b style="color:${cfg.color}">${cfg.emoji} ${cfg.label}:</b> ${fmtCur(gmv)}</div>`;
   });
-  document.getElementById("summary-bar").innerHTML=html;
+  document.getElementById(elId).innerHTML=html;
+}
+
+// ── CHARTS ───────────────────────────────────────────────────
+function destroyChart(id){if(charts[id]){charts[id].destroy();delete charts[id];}}
+
+function renderCharts(){
+  const base=getFilteredRows(activeTabRes);
+  const platsToShow=activeTabRes==="ALL"?Object.keys(PLATS):[activeTabRes];
+  const weekKeys=[...new Set(base.map(r=>weekKey(r["Data do Report"])).filter(k=>k!=="—"))].sort();
+  const weekLabels=weekKeys.map(k=>{const r=base.find(x=>weekKey(x["Data do Report"])===k);return r?weekRangeLabel(r["Data do Report"]):k;});
+
+  const platLabel=activeTabRes==="ALL"?"Todas":PLATS[activeTabRes]?.label||"";
+  document.getElementById("ct-gmv-all").textContent=`GMV por Semana — ${platLabel}`;
+  document.getElementById("ct-gmv-plat").textContent=`GMV por Plataforma — ${monthLabel(getSelMonth())}`;
+  document.getElementById("ct-afil").textContent=`Afiliados Ativos — ${platLabel}`;
+  document.getElementById("ct-cri").textContent=`Criadores que Postaram — ${platLabel}`;
+  document.getElementById("ct-camp").textContent=`Campanhas Ativas — ${platLabel}`;
+
+  function lineDs(pk,extractFn){
+    const cfg=PLATS[pk];
+    return{label:cfg.emoji+" "+cfg.label,
+      data:weekKeys.map(wk=>{const r=base.find(x=>platKey(x["🚀 Plataforma  🚀 "])===pk&&weekKey(x["Data do Report"])===wk);return r?extractFn(r):null;}),
+      borderColor:PLAT_COLORS[pk],backgroundColor:PLAT_COLORS[pk]+"33",
+      tension:.4,spanGaps:true,pointRadius:5,pointHoverRadius:8,borderWidth:2};
+  }
+
+  destroyChart("gmv-all");
+  charts["gmv-all"]=new Chart(document.getElementById("chart-gmv-all"),{type:"line",
+    data:{labels:weekLabels,datasets:platsToShow.map(pk=>lineDs(pk,r=>parseFloat(r["Faturamento Bruto (GMV) Atual"])||0))},
+    options:{responsive:true,interaction:{mode:"index",intersect:false},
+      plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},
+      scales:{y:{ticks:{callback:v=>"R$ "+Number(v).toLocaleString("pt-BR")},grid:{color:"#f0f0f0"}}}}});
+
+  destroyChart("gmv-plat");
+  charts["gmv-plat"]=new Chart(document.getElementById("chart-gmv-plat"),{type:"bar",
+    data:{labels:platsToShow.map(pk=>PLATS[pk].emoji+" "+PLATS[pk].label),
+      datasets:[{label:"GMV",data:platsToShow.map(pk=>base.filter(r=>platKey(r["🚀 Plataforma  🚀 "])===pk).reduce((s,r)=>s+(parseFloat(r["Faturamento Bruto (GMV) Atual"])||0),0)),
+        backgroundColor:platsToShow.map(pk=>PLAT_COLORS[pk]),borderRadius:8,borderSkipped:false}]},
+    options:{responsive:true,plugins:{legend:{display:false}},
+      scales:{y:{ticks:{callback:v=>"R$ "+Number(v).toLocaleString("pt-BR")},grid:{color:"#f0f0f0"}}}}});
+
+  destroyChart("afiliados");
+  charts["afiliados"]=new Chart(document.getElementById("chart-afiliados"),{type:"line",
+    data:{labels:weekLabels,datasets:platsToShow.map(pk=>lineDs(pk,r=>parseInt(r["Nível de Atividade da Base: Número total de afiliados ativos"])||null))},
+    options:{responsive:true,interaction:{mode:"index",intersect:false},plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},scales:{y:{grid:{color:"#f0f0f0"}}}}});
+
+  destroyChart("criadores");
+  charts["criadores"]=new Chart(document.getElementById("chart-criadores"),{type:"line",
+    data:{labels:weekLabels,datasets:platsToShow.map(pk=>lineDs(pk,r=>{const v=findCol(r,["postaram","linkaram","criadores"]);return v?parseInt(v)||null:null;}))},
+    options:{responsive:true,interaction:{mode:"index",intersect:false},plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},scales:{y:{grid:{color:"#f0f0f0"}}}}});
+
+  destroyChart("campanhas");
+  charts["campanhas"]=new Chart(document.getElementById("chart-campanhas"),{type:"bar",
+    data:{labels:weekLabels,datasets:platsToShow.map(pk=>({
+      label:PLATS[pk].emoji+" "+PLATS[pk].label,
+      data:weekKeys.map(wk=>{const r=base.find(x=>platKey(x["🚀 Plataforma  🚀 "])===pk&&weekKey(x["Data do Report"])===wk);if(!r)return null;const v=findCol(r,["campanhas"]);return v?parseInt(v)||null:null;}),
+      backgroundColor:PLAT_COLORS[pk]+"bb",borderColor:PLAT_COLORS[pk],borderRadius:6,borderWidth:1}))},
+    options:{responsive:true,interaction:{mode:"index",intersect:false},plugins:{legend:{position:"bottom",labels:{boxWidth:12,font:{size:11}}}},scales:{y:{grid:{color:"#f0f0f0"}}}}});
 }
 
 // ── TOGGLE MONTH ─────────────────────────────────────────────
@@ -607,23 +618,28 @@ function toggleMonthView(){
   const btn=document.getElementById("toggle-month-btn");
   btn.classList.toggle("active",monthView);
   btn.textContent=monthView?"📅 Ver por Semana":"📊 Ver Resultado do Mês";
-  renderDetail(); renderSummary();
+  renderAll();
 }
 
 // ── RENDER ALL ───────────────────────────────────────────────
-function renderAll(){ renderTabs(); renderDetail(); renderSummary(); renderCharts(); }
+function renderAll(){
+  renderTabs("tabs-res",activeTabRes,k=>{activeTabRes=k;renderAll();});
+  renderTabs("tabs-ana",activeTabAna,k=>{activeTabAna=k;renderAll();});
+  renderResultsDetail();
+  renderAnalysisDetail();
+  renderSummary("summary-res",activeTabRes);
+  renderSummary("summary-ana",activeTabAna);
+  renderCharts();
+}
 
 // ── PROCESS ──────────────────────────────────────────────────
 function processRows(rows,source){
   allRows=rows.filter(r=>r["🚀 Plataforma  🚀 "]);
-  if(!allRows.length){
-    document.getElementById("error-wrap").style.display="block";
-    document.getElementById("loading-wrap").style.display="none";
-    return;
-  }
+  if(!allRows.length){document.getElementById("error-wrap").style.display="block";document.getElementById("loading-wrap").style.display="none";return;}
   populateFilters();
   document.getElementById("loading-wrap").style.display="none";
   document.getElementById("error-wrap").style.display="none";
+  document.getElementById("main-nav").style.display="flex";
   document.getElementById("main-content").style.display="block";
   document.getElementById("hstatus").textContent="✅ "+source;
   document.getElementById("last-upd").textContent="Atualizado em: "+new Date().toLocaleString("pt-BR");
@@ -637,11 +653,10 @@ async function loadFromRepo(){
   const base=window.location.href.replace(/\/[^/]*$/,"/");
   try{
     const res=await fetch(base+encodeURIComponent(ARQUIVO));
-    if(!res.ok) throw new Error();
+    if(!res.ok)throw new Error();
     const buf=await res.arrayBuffer();
     const wb=XLSX.read(new Uint8Array(buf),{type:"array",cellDates:true});
-    const ws=wb.Sheets[wb.SheetNames[0]];
-    processRows(XLSX.utils.sheet_to_json(ws,{defval:null}),"Dados do repositório");
+    processRows(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:null}),"Dados do repositório");
   }catch{
     document.getElementById("loading-wrap").style.display="none";
     document.getElementById("error-wrap").style.display="block";
@@ -649,7 +664,7 @@ async function loadFromRepo(){
   }
 }
 document.getElementById("file-input").addEventListener("change",function(e){
-  const file=e.target.files[0]; if(!file) return;
+  const file=e.target.files[0];if(!file)return;
   const reader=new FileReader();
   reader.onload=ev=>{
     try{
